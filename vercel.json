@@ -15,6 +15,10 @@
         {
           "key": "Access-Control-Allow-Headers",
           "value": "Content-Type"
+        },
+        {
+          "key": "Access-Control-Expose-Headers",
+          "value": "Access-Control-Allow-Origin"
         }
       ]
     }

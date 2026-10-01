@@ -17,6 +17,7 @@ app.add_middleware(
     allow_origins=["*"],
     allow_methods=["POST"],
     allow_headers=["*"],
+    expose_headers=["Access-Control-Allow-Origin"],
 )
 
 
