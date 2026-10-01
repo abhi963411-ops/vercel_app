@@ -59,3 +59,7 @@ def get_region_metrics(request: MetricsRequest) -> dict:
             "breaches": sum(latency > request.threshold_ms for latency in latencies),
         }
     return results
+
+@app.get("/home")
+def home():
+    return {"app": "it is running very well"}
