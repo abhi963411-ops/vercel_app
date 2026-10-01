@@ -60,6 +60,7 @@ def get_region_metrics(request: MetricsRequest) -> dict:
         }
     return results
 
+
 @app.get("/home")
 def home():
     return {"app": "it is running very well"}
