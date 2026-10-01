@@ -45,7 +45,7 @@ def percentile_95(values: list[float]) -> float:
 
 @app.post("/")
 @app.post("/{function_path:path}")
-def get_region_metrics(request: MetricsRequest) -> dict:
+def get_region_metrics(request: MetricsRequest) -> dict[str, dict[str, dict[str, float | int]]]:
     results = {}
     for region in request.regions:
         records = [record for record in TELEMETRY if record["region"] == region]
@@ -59,7 +59,7 @@ def get_region_metrics(request: MetricsRequest) -> dict:
             "avg_uptime": mean(record["uptime_pct"] for record in records),
             "breaches": sum(latency > request.threshold_ms for latency in latencies),
         }
-    return results
+    return {"regions": results}
 
 
 @app.get("/home")
